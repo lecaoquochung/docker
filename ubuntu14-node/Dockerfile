@@ -1,18 +1,3 @@
-# DOCKER ENV
-- [ ] Get started
-- [ ] Project 01: Ubuntu 14.04 Nodejs
-- [ ] Project 02: Centos 6x PHP
-
-## Get started
-### Install Docker
-- [x] MAC Install
- - Tutorial https://docs.docker.com/docker-for-mac/
-- [ ] WIN Install
-- [ ] Linux Install
-
-## Ubuntu 14.04 Nodejs
-### Dockerfile
-```
 FROM ubuntu:14.04
 
 # path
@@ -39,11 +24,3 @@ EXPOSE 9000
 
 # Project
 # CMD pm2 start --no-daemon /home/ubuntu/projects/
-
-```
-
-### Docker Compose
-
-## Reference
-- Docker https://www.docker.com/
-- Homebrew Cask https://github.com/caskroom/homebrew-cask
