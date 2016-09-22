@@ -1,34 +1,40 @@
-docker:
-  dockerfile: Dockerfile
-  build: .
+server:
+  dockerfile: $PWD/server/Dockerfile
+  build: ./server
   links:
     - redis
     - mysql
   ports:
-    - "9000:9000"
+    - "8000:8000"
   volumes:
-    - ./projects:/home/ubuntu/projects
+    - $PWD/projects:/home/ubuntu/projects
   environment:
+    - TERM=xterm
     - REDIS_PORT=6379
     - REDIS_HOST=redis
     - DEPLOY_ENV=local
-    - DB_HOST=mysql
-    - DB_NAME=docker
-    - DB_PORT=3306
-    - DB_USERNAME=docker
-    - DB_PASSWORD=lecaoquochung
+    - MYSQL_HOST=mysql
+    - MYSQL_PORT=3306
+    - MYSQL_DATABASE=docker
+    - MYSQL_USERNAME=docker
+    - MYSQL_PASSWORD=docker
+    - MYSQL_ROOT_PASSWORD=lecaoquochung
+
+nginx:
+  dockerfile: $PWD/server/nginxDockerfile
+  build: ./server
+  links:
+    - server
+  ports:
+    - "80:80"
+
+mysql:
+  dockerfile: $PWD/db/Dockerfile
+  build: ./db
+  ports:
+    - "3306:3306"
 
 redis:
   image: redis
   ports:
     - "6379:6379"
-
-mysql:
-  build: ./db
-  ports:
-    - "3306:3306"
-  environment:
-    - MYSQL_ROOT_PASSWOR=lecaoquochung
-    - MYSQL_DATABASE=docker
-    - MYSQL_USER=docker
-    - MYSQL_PASSWORD=docker

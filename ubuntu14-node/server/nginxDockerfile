@@ -1,0 +1,5 @@
+FROM nginx
+
+COPY nginx.conf /etc/nginx/nginx.conf
+RUN mkdir -p /etc/nginx/sites-enabled
+COPY projects.conf /etc/nginx/sites-enabled/projects.conf

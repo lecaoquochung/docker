@@ -20,7 +20,7 @@ RUN mkdir -p /home/ubuntu/projects
 WORKDIR /home/ubuntu/projects
 
 # Expose
-EXPOSE 9000
+EXPOSE 8000
 
 # Project
-# CMD pm2 start --no-daemon /home/ubuntu/projects/
+CMD pm2 start --no-daemon /home/ubuntu/projects/server.js
