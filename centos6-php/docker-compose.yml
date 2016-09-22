@@ -1,6 +1,6 @@
 server:
     dockerfile: $PWD/server/Dockerfile
-    build: ./server
+    build: $PWD/server
     links:
         - mysql
         - memcached
@@ -12,7 +12,7 @@ server:
 
 mysql:
     dockerfile: $PWD/db//Dockerfile
-    build: ./db
+    build: $PWD/db
     ports:
         - "3306:3306"
     environment:
@@ -21,7 +21,7 @@ mysql:
         - MYSQL_USER=docker
         - MYSQL_PASSWORD=docker
     volumes:
-        - ./db/init.d:/docker-entrypoint-initdb.d
+        - $PWD/db/init.d:/docker-entrypoint-initdb.d
     mem_limit: 1000000000
 
 memcached:
