@@ -21,6 +21,7 @@ WORKDIR /home/ubuntu/projects
 
 # Expose
 EXPOSE 8000
+EXPOSE 8001
 
 # Project
-CMD pm2 start --no-daemon /home/ubuntu/projects/server.js
+CMD pm2 start --no-daemon /home/ubuntu/projects/server.json

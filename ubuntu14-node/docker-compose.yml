@@ -6,6 +6,7 @@ server:
     - mysql
   ports:
     - "8000:8000"
+    - "8001:8001"
   volumes:
     - $PWD/projects:/home/ubuntu/projects
   environment:
@@ -13,12 +14,26 @@ server:
     - REDIS_PORT=6379
     - REDIS_HOST=redis
     - DEPLOY_ENV=local
+
+mysql:
+  dockerfile: $PWD/db/Dockerfile
+  build: ./db
+  ports:
+    - "3306:3306"
+  volumes:
+    - $PWD/db/init.d:/docker-entrypoint-initdb.d
+  environment:
     - MYSQL_HOST=mysql
     - MYSQL_PORT=3306
     - MYSQL_DATABASE=docker
     - MYSQL_USERNAME=docker
     - MYSQL_PASSWORD=docker
     - MYSQL_ROOT_PASSWORD=lecaoquochung
+
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
 
 nginx:
   dockerfile: $PWD/server/nginxDockerfile
@@ -27,14 +42,3 @@ nginx:
     - server
   ports:
     - "80:80"
-
-mysql:
-  dockerfile: $PWD/db/Dockerfile
-  build: ./db
-  ports:
-    - "3306:3306"
-
-redis:
-  image: redis
-  ports:
-    - "6379:6379"

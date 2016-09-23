@@ -1,0 +1,13 @@
+{
+    "apps" : [{
+        "name"       : "test-server",
+        "script"     : "testServer.js",
+        "args"       : "8000",
+        "cwd"        : "/home/ubuntu/projects/"
+    }, {
+        "name"        : "node-api",
+        "script"      : "server.js",
+        "args"        : "8001",
+        "cwd"         : "/home/ubuntu/projects/node-api/"
+    }]
+}

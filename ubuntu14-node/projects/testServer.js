@@ -3,11 +3,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res){
-	res.send('Hello World');
-});
-
-app.get('/about', function(req, res){
-	res.send('<h1>About Us</h1>');
+	res.send('Test Server');
 });
 
 app.listen(8000, function(){
