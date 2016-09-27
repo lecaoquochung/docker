@@ -1,3 +1,7 @@
+# nodejs
 node_modules
+
+# centos6-php
 projects/*
 *_dev.sql
+*_dev.conf
