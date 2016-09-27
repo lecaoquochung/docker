@@ -16,10 +16,15 @@ RUN yum install --enablerepo=epel,remi-php56,remi -y \
                               php-xdebug \
                               php-memcached \
                               mysql-server \
-                              phpmyadmin
+                              phpmyadmin \
+                              mod_ssl openssl
 RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Tokyo|" /etc/php.ini
 
+# Default Docker Dev
 COPY httpd.conf /etc/httpd/conf.d/virtual.conf
+
+# Projects
+COPY projects/httpd-conf/* /etc/httpd/conf.d/
 
 EXPOSE 80
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
