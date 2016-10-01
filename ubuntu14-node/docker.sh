@@ -19,8 +19,8 @@ ssh     - SSH Connect \n"
         (docker-compose down)
         ;;
     ssh)
-        # Provides an interactive bash shell in the API container
-        (docker-compose exec docker /bin/bash)
+        # Connect to SSH
+        (docker exec -it ubuntu14node_server_1 bash)
         ;;
     *)
         echo "unknown command"

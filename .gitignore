@@ -1,5 +1,6 @@
 # nodejs
 node_modules
+npm_debug.log
 
 # centos6-php
 projects/*
