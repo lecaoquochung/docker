@@ -41,6 +41,14 @@
 ### Dockerfile
 - https://github.com/lecaoquochung/docker/blob/master/centos6-php/docker-compose.yml
 
+### ENV
+```
+dbname: MYSQL_ENV_MYSQL_DATABASE
+port: MYSQL_PORT_3306_TCP_ADDR
+mysqluser: MYSQL_ENV_MYSQL_USER
+mysqlpasword: MYSQL_ENV_MYSQL_PASSWORD
+```
+
 ## Reference
 - Docker https://www.docker.com/
 - Homebrew Cask https://github.com/caskroom/homebrew-cask

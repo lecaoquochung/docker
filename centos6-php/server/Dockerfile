@@ -24,7 +24,7 @@ RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Tokyo|" /etc/php.ini
 COPY httpd.conf /etc/httpd/conf.d/virtual.conf
 
 # Projects
-COPY projects/httpd-conf/* /etc/httpd/conf.d/
+COPY projects/* /etc/httpd/conf.d/
 
 EXPOSE 80
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
